@@ -4,7 +4,7 @@
  * @license MIT
  * @version 1.0.0
  */
-
+define("BASE_DIR", __DIR__);
 require_once("src/cmd.php");
 $cmd = new Cmd;
 

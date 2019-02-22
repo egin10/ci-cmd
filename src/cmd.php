@@ -34,7 +34,7 @@ Class Cmd {
         $handle = fopen($file,'w');
         fwrite($handle,$content);
         fclose($handle);
-        rename($file,__DIR__."/../application/".$dir.'/'.$file);
+        rename($file,BASE_DIR."/application/".$dir.'/'.$file);
     }
 
     /**
@@ -57,11 +57,11 @@ Class Cmd {
         $fileName = is_array($arrDir) ? $arrDir[count($arrDir)-1] : $name;
         $content = "<?php\ndefined('BASEPATH') OR exit('No direct script access allowed');\n\nclass ".ucfirst($fileName)." extends CI_Controller {\n\tpublic function __construct()\n\t\t{\n\t\t\tparent::__construct();\n\t\t}\n}";
 
-        if(file_exists(__DIR__."/../application/".$dir."/".$fileName.".php")){
+        if(file_exists(BASE_DIR."/application/".$dir."/".$fileName.".php")){
             echo "\e[31mThe Controller name ".$fileName." exists!\n";
         }else{
-            if(!is_dir(__DIR__."/../application/".$dir)) {
-                mkdir(__DIR__."/../application/".$dir);
+            if(!is_dir(BASE_DIR."/application/".$dir)) {
+                mkdir(BASE_DIR."/application/".$dir);
             }
             $this->cFile($fileName,$content,$dir);
             echo "\e[32mDone ".ucfirst($fileName)." successful created.\n";
@@ -88,13 +88,13 @@ Class Cmd {
         $fileName = is_array($arrDir) ? $arrDir[count($arrDir)-1] : $name;
         $content = "<?php\ndefined('BASEPATH') OR exit('No direct script access allowed');\n\nclass ".ucfirst($name)."_model extends CI_Model {\n\tpublic function __construct()\n\t\t{\n\t\t\tparent::__construct();\n\t\t}\n}";
 
-        if(file_exists(__DIR__."/../application/".$dir."/".$fileName.".php")){
+        if(file_exists(BASE_DIR."/application/".$dir."/".$fileName.".php")){
             echo "\e[31mThe Model name ".$fileName."_model.php exists!\n";
         }else{
-            if(!is_dir(__DIR__."/../application/".$dir)) {
-                mkdir(__DIR__."/../application/".$dir);
+            if(!is_dir(BASE_DIR."/application/".$dir)) {
+                mkdir(BASE_DIR."/application/".$dir);
             }
-            $this->cFile($name,$content,$dir);
+            $this->cFile($fileName,$content,$dir);
             echo "\e[32mDone ".ucfirst($name)."_model.php successful created.\n";
         }
     }
@@ -110,7 +110,7 @@ Class Cmd {
     {   
         echo php_uname()."\n";
         echo "Listening on http://localhost:".$port."\n";
-        echo __DIR__."\n";
+        echo BASE_DIR."\n";
         exec("php -S localhost:".$port);
     }
 }
