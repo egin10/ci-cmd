@@ -86,7 +86,7 @@ Class Cmd {
             }
         }
         $fileName = is_array($arrDir) ? $arrDir[count($arrDir)-1] : $name;
-        $content = "<?php\ndefined('BASEPATH') OR exit('No direct script access allowed');\n\nclass ".ucfirst($name)."_model extends CI_Model {\n\tpublic function __construct()\n\t\t{\n\t\t\tparent::__construct();\n\t\t}\n}";
+        $content = "<?php\ndefined('BASEPATH') OR exit('No direct script access allowed');\n\nclass ".ucfirst($fileName)."_model extends CI_Model {\n\tpublic function __construct()\n\t\t{\n\t\t\tparent::__construct();\n\t\t}\n}";
 
         if(file_exists(BASE_DIR."/application/".$dir."/".$fileName.".php")){
             echo "\e[31mThe Model name ".$fileName."_model.php exists!\n";
