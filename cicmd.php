@@ -35,5 +35,16 @@ if(isset($argv[1]))
                 $cmd->help();
             }
             break;
+        case 'run':
+            if(isset($argv[2]))
+            {
+                $cmd->run($argv[2]);
+            }else {
+                $cmd->run(8000);
+            }
+            break;
     }
+}else{
+    $cmd->help();
 }
+unset($cmd);

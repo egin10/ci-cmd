@@ -4,8 +4,6 @@ Command helper for creating new Controller and Model in CodeIgniter
 
 ## Installation
 
---
-
 1. Clone this repo to your project directory `git clone https://github.com/egin10/ci-cmd.git`
 2. Copy file `cicmd.php` and directory `src` to your project directory. It will look like below :
 
