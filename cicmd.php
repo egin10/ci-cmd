@@ -35,6 +35,15 @@ if(isset($argv[1]))
                 $cmd->help();
             }
             break;
+        case 'add:helper':
+            if(isset($argv[2]))
+            {
+                $cmd->helper($argv[2]);
+            }else{
+                echo "\e[31mPlease add Helper name!\n";
+                $cmd->help();
+            }
+            break;
         case 'run':
             if(isset($argv[2]))
             {
