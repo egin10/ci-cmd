@@ -58,8 +58,8 @@ Class Cmd {
         $fileName = is_array($arrDir) ? $arrDir[count($arrDir)-1] : $name;
         $content = "<?php\ndefined('BASEPATH') OR exit('No direct script access allowed');\n\nclass ".ucfirst($fileName)." extends CI_Controller {\n\tpublic function __construct()\n\t{\n\t\tparent::__construct();\n\t}\n}";
 
-        if(file_exists(BASE_DIR."/application/".$dir."/".$fileName.".php")){
-            echo "\e[31mThe Controller name ".$fileName." exists!\n";
+        if(file_exists(BASE_DIR."/application/".$dir."/".ucfirst($fileName).".php")){
+            echo "\e[31mThe Controller name ".ucfirst($fileName)." exists!\n";
         }else{
             if(!is_dir(BASE_DIR."/application/".$dir)) {
                 mkdir(BASE_DIR."/application/".$dir);
@@ -86,17 +86,17 @@ Class Cmd {
                 $dir .="/".$arrDir[$n];
             }
         }
-        $fileName = is_array($arrDir) ? $arrDir[count($arrDir)-1] : $name;
+        $fileName = is_array($arrDir) ? $arrDir[count($arrDir)-1]."_model" : $name."_model";
         $content = "<?php\ndefined('BASEPATH') OR exit('No direct script access allowed');\n\nclass ".ucfirst($fileName)."_model extends CI_Model {\n\tpublic function __construct()\n\t{\n\t\tparent::__construct();\n\t}\n}";
 
-        if(file_exists(BASE_DIR."/application/".$dir."/".$fileName.".php")){
-            echo "\e[31mThe Model name ".$fileName."_model.php exists!\n";
+        if(file_exists(BASE_DIR."/application/".$dir."/".ucfirst($fileName).".php")){
+            echo "\e[31mThe Model name ".ucfirst($fileName).".php exists!\n";
         }else{
             if(!is_dir(BASE_DIR."/application/".$dir)) {
                 mkdir(BASE_DIR."/application/".$dir);
             }
             $this->cFile($fileName,$content,$dir);
-            echo "\e[32mDone ".ucfirst($name)."_model.php successful created.\n";
+            echo "\e[32mDone ".ucfirst($fileName).".php successful created.\n";
         }
     }
 
@@ -117,17 +117,17 @@ Class Cmd {
                 $dir .="/".$arrDir[$n];
             }
         }
-        $fileName = is_array($arrDir) ? $arrDir[count($arrDir)-1] : $name;
+        $fileName = is_array($arrDir) ? $arrDir[count($arrDir)-1]."_helper" : $name."_helper";
         $content = "<?php\ndefined('BASEPATH') OR exit('No direct script access allowed');\n";
 
-        if(file_exists(BASE_DIR."/application/".$dir."/".$fileName.".php")){
-            echo "\e[31mThe Model name ".$fileName."_helper.php exists!\n";
+        if(file_exists(BASE_DIR."/application/".$dir."/".ucfirst($fileName).".php")){
+            echo "\e[31mThe Model name ".ucfirst($fileName).".php exists!\n";
         }else{
             if(!is_dir(BASE_DIR."/application/".$dir)) {
                 mkdir(BASE_DIR."/application/".$dir);
             }
             $this->cFile($fileName,$content,$dir);
-            echo "\e[32mDone ".ucfirst($name)."_helper.php successful created.\n";
+            echo "\e[32mDone ".ucfirst($fileName).".php successful created.\n";
         }
     }
 
