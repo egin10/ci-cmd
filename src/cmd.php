@@ -31,7 +31,7 @@ Class Cmd {
      */
     private function cFile(string $fileName, string $content, string $dir):void
     {
-        $file = ucfirst($fileName).".php";
+        $file = $fileName.".php";
         $handle = fopen($file,'w');
         fwrite($handle,$content);
         fclose($handle);
@@ -64,7 +64,7 @@ Class Cmd {
             if(!is_dir(BASE_DIR."/application/".$dir)) {
                 mkdir(BASE_DIR."/application/".$dir);
             }
-            $this->cFile($fileName,$content,$dir);
+            $this->cFile(ucfirst($fileName),$content,$dir);
             echo "\e[32mDone ".ucfirst($fileName)." successful created.\n";
         }
     }
@@ -95,7 +95,7 @@ Class Cmd {
             if(!is_dir(BASE_DIR."/application/".$dir)) {
                 mkdir(BASE_DIR."/application/".$dir);
             }
-            $this->cFile($fileName,$content,$dir);
+            $this->cFile(ucfirst($fileName),$content,$dir);
             echo "\e[32mDone ".ucfirst($fileName).".php successful created.\n";
         }
     }
@@ -120,14 +120,14 @@ Class Cmd {
         $fileName = is_array($arrDir) ? $arrDir[count($arrDir)-1]."_helper" : $name."_helper";
         $content = "<?php\ndefined('BASEPATH') OR exit('No direct script access allowed');\n";
 
-        if(file_exists(BASE_DIR."/application/".$dir."/".ucfirst($fileName).".php")){
-            echo "\e[31mThe Model name ".ucfirst($fileName).".php exists!\n";
+        if(file_exists(BASE_DIR."/application/".$dir."/".$fileName.".php")){
+            echo "\e[31mThe Model name ".$fileName.".php exists!\n";
         }else{
             if(!is_dir(BASE_DIR."/application/".$dir)) {
                 mkdir(BASE_DIR."/application/".$dir);
             }
             $this->cFile($fileName,$content,$dir);
-            echo "\e[32mDone ".ucfirst($fileName).".php successful created.\n";
+            echo "\e[32mDone ".$fileName.".php successful created.\n";
         }
     }
 
