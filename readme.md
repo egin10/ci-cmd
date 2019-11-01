@@ -111,6 +111,7 @@ The command above will run the service with the `php -S localhost:port` command.
 
 #### Change Logs
 
-    1. Create method to create new Helper (19-03-2019).
+    1. Create method to create new Helper (03-19-2019).
+    2. Update cicmd.php to cicmd (11-01-2019).
 
 ---
