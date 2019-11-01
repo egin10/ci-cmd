@@ -14,10 +14,10 @@ Class Cmd {
     public function help():void
     {
         echo "\e[37mCommand List                                              | Descriptions\n";
-        echo "\e[32mphp cicmd.php add:controller [NameController] \t\t  |\e[35mCreate new controller\n";
-        echo "\e[32mphp cicmd.php add:model [NameModel] \t\t\t  |\e[35mCreate new Model\n";
-        echo "\e[32mphp cicmd.php add:helper [NameHelper] \t\t\t  |\e[35mCreate new Helper\n";
-        echo "\e[32mphp cicmd.php run [PORT] \t\t\t\t  |\e[35mRun CI on http://localhost:PORT, default PORT 8000\n";
+        echo "\e[32mphp cicmd add:controller [NameController] \t\t  |\e[35mCreate new controller\n";
+        echo "\e[32mphp cicmd add:model [NameModel] \t\t\t  |\e[35mCreate new Model\n";
+        echo "\e[32mphp cicmd add:helper [NameHelper] \t\t\t  |\e[35mCreate new Helper\n";
+        echo "\e[32mphp cicmd run [PORT] \t\t\t\t\t  |\e[35mRun CI on http://localhost:PORT, default PORT 8000\n";
         return;
     }
 
